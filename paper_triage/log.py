@@ -1,4 +1,4 @@
-"""Logging helpers for the paper triage workflow."""
+"""Logging helpers for the PaperClerk AI workflow."""
 from __future__ import annotations
 
 import csv

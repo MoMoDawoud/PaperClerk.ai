@@ -1,4 +1,4 @@
-# Example configuration for the paper triage assistant
+# Example configuration for PaperClerk AI
 input_folders:
   - /Users/moamedmoustafadawoud/Downloads/papers
 archive_dir: /Users/moamedmoustafadawoud/Downloads/papers/archive
@@ -32,4 +32,4 @@ email:
   sender: mdawoud@ucsc.edu
   recipients:
     - mdawoud@ucsc.edu
-  subject: "Weekly paper triage digest"
+  subject: "PaperClerk AI digest"

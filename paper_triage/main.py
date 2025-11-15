@@ -1,4 +1,4 @@
-"""CLI entry point for the paper triage assistant with optional email digests."""
+"""CLI entry point for PaperClerk AI with optional email digests."""
 from __future__ import annotations
 
 import argparse
@@ -24,7 +24,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Weekly paper triage assistant")
+    parser = argparse.ArgumentParser(description="PaperClerk AI – automated paper triage")
     parser.add_argument("--config", default="config.yaml", help="Path to YAML config file")
     parser.add_argument("--dry-run", action="store_true", help="Preview without moving files")
     parser.add_argument("--max-pages", type=int, help="Override max pages to read per paper")
@@ -70,7 +70,7 @@ def load_config(path: Path) -> Dict[str, Any]:
             "password_env": None,
             "sender": "paper-triage@example.com",
             "recipients": [],
-            "subject": "Weekly paper triage digest",
+            "subject": "PaperClerk AI digest",
         },
         "schedule": {
             "enabled": False,
@@ -180,12 +180,12 @@ def maybe_send_email(
         LOGGER.error("Email sending requires 'sender' and 'recipients' in config.")
         return
 
-    subject = email_cfg.get("subject", "Weekly paper triage digest")
-    body_lines = ["Weekly paper triage report", ""]
+    subject = email_cfg.get("subject", "PaperClerk AI digest")
+    body_lines = ["PaperClerk AI report", ""]
     for entry in log_entries:
         body_lines.append(f"- {entry['title']} — decision: {entry['decision']} — file: {entry['path']}")
     body_lines.append("")
-    body_lines.append("This email was generated automatically by the paper triage assistant.")
+    body_lines.append("This email was generated automatically by PaperClerk AI.")
 
     attachments = {}
     if digest_path and digest_path.exists():
