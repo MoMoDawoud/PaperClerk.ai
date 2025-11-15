@@ -181,11 +181,15 @@ def maybe_send_email(
         return
 
     subject = email_cfg.get("subject", "PaperClerk AI digest")
-    body_lines = ["PaperClerk AI report", ""]
-    for entry in log_entries:
-        body_lines.append(f"- {entry['title']} — decision: {entry['decision']} — file: {entry['path']}")
-    body_lines.append("")
-    body_lines.append("This email was generated automatically by PaperClerk AI.")
+    body_lines = [
+        "Hello researcher,",
+        "",
+        "PaperClerk AI just wrapped up your latest review session.",
+        f"It processed {len(log_entries)} paper(s) and captured fresh summaries.",
+        "Peek at the attached digest for the full story, and keep the momentum going!",
+        "",
+        "— PaperClerk AI"
+    ]
 
     attachments = {}
     if digest_path and digest_path.exists():
