@@ -1,0 +1,35 @@
+# Example configuration for the paper triage assistant
+input_folders:
+  - /Users/moamedmoustafadawoud/Downloads/papers
+archive_dir: /Users/moamedmoustafadawoud/Downloads/papers/archive
+model: llama3.2:latest
+max_pages: 3
+max_chars: 4000
+metadata_sources:
+  - type: bookmarks
+    path: /path/to/bookmarks.json
+  - type: zotero
+    path: /path/to/zotero-export.csv
+log_path: triage_log.csv
+digest_dir: digests
+schedule:
+  enabled: true
+  day_of_week: "*"
+  hour: 9
+  minute: 0
+digest:
+  enabled: true
+auto_decision:
+  enabled: true
+  default: keep
+email:
+  enabled: true
+  smtp_host: smtp.gmail.com
+  smtp_port: 587
+  use_tls: true
+  username: mdawoud@ucsc.edu
+  password_env: TRIAGE_EMAIL_PASSWORD
+  sender: mdawoud@ucsc.edu
+  recipients:
+    - mdawoud@ucsc.edu
+  subject: "Weekly paper triage digest"

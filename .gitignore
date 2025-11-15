@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+triage_log.csv
+digests/
+archive/
