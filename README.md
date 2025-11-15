@@ -1,17 +1,14 @@
-<<<<<<< HEAD
-# PaperClerk.ai
-=======
-# Paper Triage Assistant
+# PaperClerk AI
 
-Paper Triage Assistant is a lightweight workflow for researchers who collect too many PDFs. It scans folders, extracts the opening pages, summarizes them with a local Ollama/LLaMA model, and records keep/remove decisions. You can drive it interactively in a Rich CLI or let it run unattended (auto-keep/skip/remove) while emailing a digest every day or week.
+PaperClerk AI keeps your research library tidy. It scans folders, extracts the first pages, summarizes them with a local Ollama/LLaMA model, and records keep/remove decisions. You can drive it interactively in a Rich CLI or let it run unattended (auto-keep/skip/remove) while emailing a digest every day or week.
 
-## Highlights
-- Recursive PDF discovery across multiple folders with optional bookmark/Zotero/Mendeley metadata enrichment.
-- `pypdf` extraction of the first few pages plus cached summaries from an Ollama model (defaults to `llama3.2:latest`).
-- Rich CLI decisions (`[k]eep/[r]emove/[s]kip/[o]pen`) with `--dry-run` previews; `[r]emove` safely moves files into an archive directory.
-- CSV logging (`triage_log.csv`) and Markdown digests documenting every action.
-- APScheduler integration and `auto_decision` mode so unattended runs email a digest without blocking for input.
-- SMTP email integration (e.g., Gmail app passwords) to send the digest to collaborators.
+## Why PaperClerk?
+- **Hands-off triage** – auto-summarize and auto-decide (keep/remove/skip) when you cannot babysit the CLI.
+- **Research context** – each summary highlights problem, method, domain, findings, and notable limitations.
+- **Safe archiving** – removals get moved into an archive folder; nothing is deleted.
+- **Audit trail** – CSV log + Markdown digest documenting every action.
+- **Daily/weekly cadence** – APScheduler and LaunchAgents keep the workflow running in the background.
+- **Bring-your-own model** – uses local Ollama models (defaults to `llama3.2:latest`).
 
 ## Quickstart
 ```bash
@@ -63,10 +60,10 @@ email:
   sender: you@university.edu
   recipients:
     - you@university.edu
-  subject: "Paper triage digest"
+  subject: "PaperClerk AI digest"
 ```
 Key options:
-- `auto_decision.enabled` – set to `true` for unattended runs; `default` can be `keep`, `skip`, or `remove`.
+- `auto_decision` – set to `true` for unattended runs; `default` can be `keep`, `skip`, or `remove`.
 - `schedule.enabled` – run continuously via APScheduler; configure day/time using cron-style values.
 - `email.password_env` – expose your SMTP password/app-password via env var or Keychain before launching.
 
@@ -125,5 +122,4 @@ With `auto_decision` enabled the scheduler will keep/skip/remove automatically a
 4. Open a PR describing the changes and any manual testing.
 
 ## License
-Pick a license (MIT/BSD/etc.) before publishing so collaborators know how they can use it.
->>>>>>> edcadbf (Improve documentation and context prompt)
+Choose a license (MIT/BSD/etc.) before publishing if you plan to collaborate publicly. Drop it in `LICENSE` at the repo root.
