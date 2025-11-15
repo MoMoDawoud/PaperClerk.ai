@@ -122,4 +122,4 @@ With `auto_decision` enabled the scheduler will keep/skip/remove automatically a
 4. Open a PR describing the changes and any manual testing.
 
 ## License
-Choose a license (MIT/BSD/etc.) before publishing if you plan to collaborate publicly. Drop it in `LICENSE` at the repo root.
+ **Apache 2.0** 
